@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Androidportal</title>
+  <!-- Bootstrap -->
+  <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body onload="read_json();">
+<legend>Spielplätze (Liste)</legend><br>
+<a href="../index.html" class="btn btn-primary active" role="button">zurück</a><br>
+<script type="text/javascript" src="../includes/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+        function read_json() {
+            $.getJSON("../data/import/data.json", function(data) {
+                //alert("My data: " + data["mydata"]);
+                $.each(data["prime"], function(idx,prime) {
+                    //alert("Prime number: " + prime);
+                    ausgabe = ausgabe + prime + "<br>";
+                });
+            });
+document.getElementById("demo").innerHTML = ausgabe;
+        }
+</script>
+<p id="demo"></p>
+test
+</body>
+</html>
