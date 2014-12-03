@@ -7,7 +7,9 @@
         <script type="text/javascript" src="../data/import/spielplatz.json"></script>
     </head>
 <body>
-  <a href="../index.html" type="button">Menü</a> <a href="showtab.html" type="button">Liste</a><br> 
+  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> 
+  <a href="showtab.html" class="btn btn-primary btn-sm active" role="button">Liste</a> 
+  <p>
 
   <script type="text/javascript">
 
@@ -31,9 +33,16 @@
    }
 
    var mydata = JSON.parse(spielplatzdaten);
-   document.write(" Spielplatz:"+mydata[0].features[GET('id')-1].attributes.Spielplatzname+"<br>");
-   document.write(" Stadtbezirk:"+mydata[0].features[GET('id')-1].attributes.Stadtbezirk+"<br>");
-   document.write(" Stadtteil:"+mydata[0].features[GET('id')-1].attributes.Stadtteil+"<br>");
+
+   document.write('<table border="1" cellpadding="5" cellspacing="5">');
+   document.write('  <tr>');
+   document.write('    <th>Bezeichnung</th>');
+   document.write('    <th>Inhalt</th>');
+   document.write('  </tr>');
+   document.write('<tr><td>Spielplatz</td><td>' + mydata[0].features[GET('id')-1].attributes.Spielplatzname + '</td></tr>');
+   document.write('<tr><td>Stadtbezirk</td><td>' + mydata[0].features[GET('id')-1].attributes.Stadtbezirk + '</td></tr>');
+   document.write('<tr><td>Stadtteil</td><td>' + mydata[0].features[GET('id')-1].attributes.Stadtteil + '</td></tr>');
+   document.write('</table>');
 
   </script>
 </body>

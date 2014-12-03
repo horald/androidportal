@@ -6,7 +6,7 @@ window.onload = function load() {
 
   dochtml = '<table class="table">';
   dochtml = dochtml + '<tr>';
-  dochtml = dochtml + '<th>NrX</th>';
+  dochtml = dochtml + '<th>Nr</th>';
   dochtml = dochtml + '<th>Spielplatz</th>';
   dochtml = dochtml + '<th>Stadtbezirk</th>';
   dochtml = dochtml + '<th>Stadtteil</th>';

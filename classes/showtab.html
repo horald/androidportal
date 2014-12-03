@@ -6,6 +6,7 @@
         <!-- Bootstrap -->
         <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript" src="../data/import/spielplatz.json"></script>
+        <script type="text/javascript" src="../data/stadtbezirk.json"></script>
         <script type="text/javascript" src="myscript.js"></script>
 
 <script type="text/javascript">
@@ -53,21 +54,30 @@ var liste = new Werteliste(location.search);
 
   <script type="text/javascript">
   document.write('<select name="stadtbezirk">');
-  if (liste['stadtbezirk']=="(ohne)") {
-    document.write('  <option selected>(ohne)</option>');
-  } else {
-    document.write('  <option>(ohne)</option>');
-  }
-  if (liste['stadtbezirk']=="Chorweiler") {
-    document.write('  <option selected>Chorweiler</option>');
-  } else {
-    document.write('  <option>Chorweiler</option>');
-  }
-  if (liste['stadtbezirk']=="Ehrenfeld") {
-    document.write('  <option selected>Ehrenfeld</option>');
-  } else {
-    document.write('  <option>Ehrenfeld</option>');
-  }
+
+  stadtbezirk.daten.forEach(function(entry) {
+    sstadtbezirk=entry.text;
+    if (entry.stadt=="ALL") {
+      lweiter=true;
+    } else {
+      if (entry.stadt=="Köln") {
+        lweiter=true;
+      } else {
+        lweiter=false;
+      } 
+    }
+    if (lweiter) {
+      //document.write(sstadtbezirk+"<br>");
+
+      if (liste['stadtbezirk']==sstadtbezirk) {
+        document.write('  <option selected>'+sstadtbezirk+'</option>');
+      } else {
+        document.write('  <option>'+sstadtbezirk+'</option>');
+      }
+
+    }
+  });
+
   document.write('</select>');
   </script>
 

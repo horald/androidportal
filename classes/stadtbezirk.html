@@ -8,9 +8,24 @@
   </head>
   <body>
   <a href="../index.html" class="btn btn-primary btn-sm active" role="button">zurück</a> 
-  Stadtbezirk
+  Stadtbezirk<br>
   <script type="text/javascript">
-  var mydata = JSON.parse(stadtbezirk);
+  //var mydata = JSON.parse(stadtbezirk);
+  stadtbezirk.daten.forEach(function(entry) {
+    sstadtbezirk=entry.text;
+    if (entry.stadt=="ALL") {
+      lweiter=true;
+    } else {
+      if (entry.stadt=="Köln") {
+        lweiter=true;
+      } else {
+        lweiter=false;
+      } 
+    }
+    if (lweiter) {
+      document.write(sstadtbezirk+"<br>");
+    }
+  });
   </script>
   </body>
 </html>
