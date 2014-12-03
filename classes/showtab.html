@@ -1,27 +1,112 @@
+<!doctype html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Androidportal</title>
-  <!-- Bootstrap -->
-  <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body onload="read_json();">
-<legend>Spielplätze (Liste)</legend><br>
-<a href="../index.html" class="btn btn-primary active" role="button">zurück</a><br>
-<script type="text/javascript" src="../includes/jquery/jquery.min.js"></script>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <title>Androidportal</title>
+        <!-- Bootstrap -->
+        <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="../data/import/spielplatz.json"></script>
+        <script type="text/javascript" src="myscript.js"></script>
+
 <script type="text/javascript">
-        function read_json() {
-            $.getJSON("../data/import/data.json", function(data) {
-                //alert("My data: " + data["mydata"]);
-                $.each(data["prime"], function(idx,prime) {
-                    //alert("Prime number: " + prime);
-                    ausgabe = ausgabe + prime + "<br>";
-                });
-            });
-document.getElementById("demo").innerHTML = ausgabe;
-        }
+function Werteliste (querystring) {
+  if (querystring == '') return;
+  var wertestring = querystring.slice(1);
+  var paare = wertestring.split("&");
+  var paar, name, wert;
+  for (var i = 0; i < paare.length; i++) {
+    paar = paare[i].split("=");
+    name = paar[0];
+    wert = paar[1];
+    name = unescape(name).replace("+", " ");
+    wert = unescape(wert).replace("+", " ");
+    this[name] = wert;
+  }
+}
+var liste = new Werteliste(location.search);
 </script>
-<p id="demo"></p>
-test
-</body>
-</html>
+
+    </head>
+    <body>
+    <div>
+
+<!--
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Feldname</th>
+    <td>Eintrag</td>
+  </tr>
+  <script type="text/javascript">
+  for (var eigenschaft in liste) {
+    document.write(
+      "<tr><td>" + eigenschaft + "</td>" +
+      "<td><code>" + liste[eigenschaft] + "</code></td></tr>"
+    );
+  }
+  </script>
+</table>
+--!>
+
+<form name="auswahl" method="GET" action="showtab.html">
+  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">zurück</a> 
+  <label>Stadtbezirk: </label>
+
+  <script type="text/javascript">
+  document.write('<select name="stadtbezirk">');
+  if (liste['stadtbezirk']=="(ohne)") {
+    document.write('  <option selected>(ohne)</option>');
+  } else {
+    document.write('  <option>(ohne)</option>');
+  }
+  if (liste['stadtbezirk']=="Chorweiler") {
+    document.write('  <option selected>Chorweiler</option>');
+  } else {
+    document.write('  <option>Chorweiler</option>');
+  }
+  if (liste['stadtbezirk']=="Ehrenfeld") {
+    document.write('  <option selected>Ehrenfeld</option>');
+  } else {
+    document.write('  <option>Ehrenfeld</option>');
+  }
+  document.write('</select>');
+  </script>
+
+  <label>Stadtteil: </label>
+  <script type="text/javascript">
+  document.write('<select name="stadtteil">');
+  if (liste['stadtteil']=="(ohne)") {
+    document.write('  <option selected>(ohne)</option>');
+  } else {
+    document.write('  <option>(ohne)</option>');
+  } 
+  if (liste['stadtteil']=="Merkenich") {
+    document.write('  <option selected>Merkenich</option>');
+  } else {
+    document.write('  <option>Merkenich</option>');
+  } 
+  if (liste['stadtteil']=="Nippes") {
+    document.write('  <option selected>Nippes</option>');
+  } else {
+    document.write('  <option>Nippes</option>');
+  }
+  if (liste['stadtteil']=="Chorweiler") {
+    document.write('  <option selected>Chorweiler</option>');
+  } else {
+    document.write('  <option>Chorweiler</option>');
+  }
+  if (liste['stadtteil']=="Ehrenfeld") {
+    document.write('  <option selected>Ehrenfeld</option>');
+  } else {
+    document.write('  <option>Ehrenfeld</option>');
+  }
+  document.write('</select>');
+  </script>
+  <input type="submit" value="Go!"> 
+<!--  <input type="button" name="reload" value="Go!" onClick="window.location.reload()"> --!>
+</form>
+
+</div>
+
+    <div id="mydiv"></div>
+    </body>
+</html>  

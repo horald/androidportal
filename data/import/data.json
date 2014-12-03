@@ -1,4 +1,1 @@
-{
-"mydata": "This is a simple value",
-"prime": [ 1, 2, 3, 5, 7, 11, 13 ]
-}
+data = '[{"name" : "Horst", "age" : "50"}]';

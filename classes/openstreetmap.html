@@ -1,28 +1,111 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <link rel="stylesheet" href="http://openlayers.org/en/v3.0.0/css/ol.css" type="text/css">
-  <style>
-      .map {
-        height: 400px;
-        width: 100%;
-      }
-  </style>
-  <script src="http://openlayers.org/en/v3.0.0/build/ol.js" type="text/javascript"></script>
+  <meta charset="utf-8" />
   <title>Androidportal</title>
-  <!-- Bootstrap -->
-  <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script type="text/javascript" src="../data/import/spielplatz.json"></script>
+
+  <style type="text/css">
+    html, body, #map { height: 100%; width: 100%; margin: 0; background: white; }
+  </style>
+
 </head>
+
 <body>
-openstreetmap<br>
-<a href="../index.html" class="btn btn-primary active" role="button">zurück</a><br>
-<script type="text/javascript" src="http://osm.rrze.uni-erlangen.de/OpenLayers.js"></script>
-<script>
-    map = new OpenLayers.Map("demoMap");
-    map.addLayer(new OpenLayers.Layer.OSM());
-    map.zoomToMaxExtent();
-</script>
-<div id="map" class="map"></div>
-test
+
+  <form name="auswahl">
+  <a href="../index.html" type="button">zurück</a> 
+  <label>Stadtbezirk: </label>
+  <select name="stadtbezirk">
+    <option>Chorweiler</option>
+    <option>Ehrenfeld</option>
+  </select>
+
+  <label>Stadtteil: </label>
+  <select name="stadtteil">
+    <option>Nippes</option>
+    <option>Chorweiler</option>
+    <option>Ehrenfeld</option>
+    <option selected>Merkenich</option>
+  </select>
+  <input type="button" name="test" value="Go!" onClick="window.location.reload()">
+  </form>
+  
+  <div id="map"></div>
+
+  <script type="text/javascript">
+
+    var mydata = JSON.parse(spielplatzdaten);
+
+    var Tiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '<a href="http://www.openstreetmap.org" target="_blank">Terms &amp; Feedback</a>'
+    });
+
+    var latitude = 50.941357, longitude = 6.958307, zoom_level = 11;
+
+    var map = L.map('map').addLayer(Tiles).setView([latitude, longitude], zoom_level);
+
+    //Add Points with geoJson:
+    var geojsonFeature = [];
+
+    mydata[0].features.forEach(function(entry) {
+
+
+      selstadtbezirk=document.auswahl.stadtbezirk.options.selectedIndex;
+      if (entry.attributes.Stadtbezirk==document.auswahl.stadtbezirk.options[selstadtbezirk].text) {
+        lweiter=true;
+      } else {
+        lweiter=false;
+      }
+      if (lweiter) {
+        selstadtteil=document.auswahl.stadtteil.options.selectedIndex;
+        if (entry.attributes.Stadtteil==document.auswahl.stadtteil.options[selstadtteil].text) {
+          lweiter=true;
+        } else {
+          lweiter=false;
+        }
+      }
+
+      if (lweiter) {
+        var arrelem = 
+        {
+          "type": "Feature",
+          "properties": {
+            "name": "spielplatz",
+            "popupContent": entry.attributes.Spielplatzname,
+          }, 
+          "geometry": {
+            "type": "Point",
+            "coordinates": [entry.geometry.x, entry.geometry.y]
+          }
+        };
+        geojsonFeature.push(arrelem);
+      }
+
+    })
+
+    var geojsonMarkerOptions = {
+        radius: 8,
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+    };
+
+    L.geoJson(geojsonFeature, {
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.popupContent);
+        },
+        pointToLayer: function (feature, latlong) {
+            return L.circleMarker(latlong, geojsonMarkerOptions);
+        }
+    }).addTo(map);
+  
+  </script>
 </body>
 </html>
