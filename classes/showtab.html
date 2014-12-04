@@ -7,7 +7,6 @@
         <link href="../includes/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script type="text/javascript" src="../data/import/spielplatz.json"></script>
         <script type="text/javascript" src="../data/stadtbezirk.json"></script>
-        <script type="text/javascript" src="myscript.js"></script>
 
 <script type="text/javascript">
 function Werteliste (querystring) {
@@ -26,6 +25,8 @@ function Werteliste (querystring) {
 }
 var liste = new Werteliste(location.search);
 </script>
+
+        <script type="text/javascript" src="myscript.js"></script>
 
     </head>
     <body>
@@ -46,7 +47,7 @@ var liste = new Werteliste(location.search);
   }
   </script>
 </table>
---!>
+-->
 
 <form name="auswahl" method="GET" action="showtab.html">
   <a href="../index.html" class="btn btn-primary btn-sm active" role="button">zurück</a> 
@@ -111,8 +112,9 @@ var liste = new Werteliste(location.search);
   }
   document.write('</select>');
   </script>
+  <input type="checkbox" name="alledaten" value="JA"> alle Daten 
   <input type="submit" value="Go!"> 
-<!--  <input type="button" name="reload" value="Go!" onClick="window.location.reload()"> --!>
+<!--  <input type="button" name="reload" value="Go!" onClick="window.location.reload()"> -->
 </form>
 
 </div>

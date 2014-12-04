@@ -7,6 +7,9 @@ window.onload = function load() {
   dochtml = '<table class="table">';
   dochtml = dochtml + '<tr>';
   dochtml = dochtml + '<th>Nr</th>';
+  if (liste["alledaten"]=="JA") {
+    dochtml = dochtml + '<th>Nr</th>';
+  }
   dochtml = dochtml + '<th>Spielplatz</th>';
   dochtml = dochtml + '<th>Stadtbezirk</th>';
   dochtml = dochtml + '<th>Stadtteil</th>';
@@ -45,12 +48,27 @@ window.onload = function load() {
       nr = nr + 1;
       dochtml = dochtml + '<tr>';
       dochtml = dochtml + '<td>'+nr+'</td>';
+      if (liste["alledaten"]=="JA") {
+        dochtml = dochtml + '<td>'+liste["alledaten"]+'</td>';
+      }
       dochtml = dochtml + '<td><a href="showdata.html?id='+index+'">'+entry.attributes.Spielplatzname+'</a></td>';
       dochtml = dochtml + '<td>'+entry.attributes.Stadtbezirk+'</td>';
       dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
       dochtml = dochtml + '<td>'+entry.geometry.x+'</td>';
       dochtml = dochtml + '<td>'+entry.geometry.y+'</td>';
-      dochtml = dochtml + '</tr>';
+      if (liste["alledaten"]=="JA") {
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '</tr>';
+      }
     }
 });
 
