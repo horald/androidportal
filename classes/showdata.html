@@ -9,6 +9,7 @@
 <body>
   <a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> 
   <a href="showtab.html" class="btn btn-primary btn-sm active" role="button">Liste</a> 
+  <a href="openstreetmap.html" class="btn btn-primary btn-sm active" role="button">Map</a> 
   <p>
 
   <script type="text/javascript">
@@ -34,52 +35,83 @@
 
    var mydata = JSON.parse(spielplatzdaten);
 
-   document.write('<table border="1" cellpadding="5" cellspacing="5">');
+   document.write('<table border="1" cellpadding="5" cellspacing="5" padding="10">');
+//   document.write('<table class="table table-condensed">');
    document.write('  <tr>');
    document.write('    <th>Bezeichnung</th>');
    document.write('    <th>Inhalt</th>');
-   document.write('    <th>Bezeichnung</th>');
-   document.write('    <th>Inhalt</th>');
    document.write('  </tr>');
-   document.write('<tr>');
-   document.write('<td>Spielplatz-Nr</td><td>' + mydata[0].features[GET('id')-1].attributes.Spielplatz_Nr + '</td>');
-   document.write('<td>Spielplatz</td><td>' + mydata[0].features[GET('id')-1].attributes.Spielplatzname + '</td>');
-   document.write('</tr>');
-   document.write('<tr>');
-   document.write('<td>Stadtbezirk</td><td>' + mydata[0].features[GET('id')-1].attributes.Stadtbezirk + '</td>');
-   document.write('<td>Stadtteil</td><td>' + mydata[0].features[GET('id')-1].attributes.Stadtteil + '</td>');
-   document.write('</tr>');
-   document.write('<tr>');
-   document.write('<td>Stadtviertel</td><td>' + mydata[0].features[GET('id')-1].attributes.Stadtviertel + '</td>');
-   document.write('<td>Spielplatzpaten</td><td>' + mydata[0].features[GET('id')-1].attributes.Spielplatzpaten + '</td>');
-   document.write('</tr>');
-   document.write('<tr>');
-   document.write('<td>Besonderheiten</td><td>' + mydata[0].features[GET('id')-1].attributes.Besonderheiten + '</td>');
-   document.write('<td>In Grünanlage/Park</td><td>' + mydata[0].features[GET('id')-1].attributes.in_Grünanlage_Park + '</td>');
-   document.write('</tr>');
-   document.write('<tr>');
-   document.write('<td>verkehrsarme Straße</td><td>' + mydata[0].features[GET('id')-1].attributes.verkehrsarmer_Strasse + '</td>');
-   document.write('<td>verkehrsreiche Straße</td><td>' + mydata[0].features[GET('id')-1].attributes.verkehrsreicher_Strasse + '</td>');
-   document.write('</tr>');
-   document.write('<tr>');
-   document.write('<td>In Wohnanlage</td><td>' + mydata[0].features[GET('id')-1].attributes.in_Wohnanlage + '</td>');
-   document.write('<td>Geschäfte/Gewerbe</td><td>' + mydata[0].features[GET('id')-1].attributes.Geschäfte_Gewerbe + '</td>');
-   document.write('</tr>');
-   document.write('<tr><td>Wohnviertel</td><td>' + mydata[0].features[GET('id')-1].attributes.Wohnviertel + '</td></tr>');
-   document.write('<tr><td>Ball und Sportangebot</td><td>' + mydata[0].features[GET('id')-1].attributes.Ball_u_Sportangebot + '</td></tr>');
-   document.write('<tr><td>Wohnen/Geschäfte</td><td>' + mydata[0].features[GET('id')-1].attributes.Wohnen_Geschäfte + '</td></tr>');
-   document.write('<tr><td>Basketball</td><td>' + mydata[0].features[GET('id')-1].attributes.Basketball + '</td></tr>');
-   document.write('<tr><td>Bolzplatz</td><td>' + mydata[0].features[GET('id')-1].attributes.Bolzplatz + '</td></tr>');
-   document.write('<tr><td>Bolzwiese</td><td>' + mydata[0].features[GET('id')-1].attributes.Bolzwiese + '</td></tr>');
-   document.write('<tr><td>Boulebahn</td><td>' + mydata[0].features[GET('id')-1].attributes.Boulebahn + '</td></tr>');
-   document.write('<tr><td>Streetball</td><td>' + mydata[0].features[GET('id')-1].attributes.Streetball + '</td></tr>');
-   document.write('<tr><td>Skaten</td><td>' + mydata[0].features[GET('id')-1].attributes.Skaten + '</td></tr>');
-   document.write('<tr><td>Tischtennis</td><td>' + mydata[0].features[GET('id')-1].attributes.Tischtennis + '</td></tr>');
-   document.write('<tr><td>Basketballkörbe</td><td>' + mydata[0].features[GET('id')-1].attributes.Basketballkörbe + '</td></tr>');
-   document.write('<tr><td>Fussballtore</td><td>' + mydata[0].features[GET('id')-1].attributes.Fussballtore + '</td></tr>');
-   document.write('<tr><td>Tischtennis Tische</td><td>' + mydata[0].features[GET('id')-1].attributes.Tischtennis_Tische + '</td></tr>');
-   document.write('<tr><td>Torwand</td><td>' + mydata[0].features[GET('id')-1].attributes.Torwand + '</td></tr>');
-   document.write('<tr><td>Sonstiges</td><td>' + mydata[0].features[GET('id')-1].attributes.Sonstiges + '</td></tr>');
+   document.write('<tr><td>Spielplatz-Nr</td><td>' + mydata[0].features[GET('id')-1].attributes.Spielplatz_Nr + '</td></tr>');
+   document.write('<tr><td>Spielplatz</td><td>' + mydata[0].features[GET('id')-1].attributes.Spielplatzname + '</td></tr>');
+   document.write('<tr><td>Stadtbezirk</td><td>' + mydata[0].features[GET('id')-1].attributes.Stadtbezirk + '</td></tr>');
+   document.write('<tr><td>Stadtteil</td><td>' + mydata[0].features[GET('id')-1].attributes.Stadtteil + '</td></tr>');
+   document.write('<tr><td>Stadtviertel</td><td>' + mydata[0].features[GET('id')-1].attributes.Stadtviertel + '</td></tr>');
+   if (mydata[0].features[GET('id')-1].attributes.Spielplatzpaten) {
+     document.write('<tr><td>Spielplatzpaten</td><td>' + mydata[0].features[GET('id')-1].attributes.Spielplatzpaten + '</td></tr>');
+   } 
+   if (mydata[0].features[GET('id')-1].attributes.Besonderheiten) {
+     document.write('<tr><td>Besonderheiten</td><td>' + mydata[0].features[GET('id')-1].attributes.Besonderheiten + '</td></tr>');
+   } 
+   if (mydata[0].features[GET('id')-1].attributes.in_Grünanlage_Park) {
+     document.write('<tr><td>In Grünanlage/Park</td><td>' + mydata[0].features[GET('id')-1].attributes.in_Grünanlage_Park + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.verkehrsarmer_Strasse) {
+     document.write('<tr><td>verkehrsarme Straße</td><td>' + mydata[0].features[GET('id')-1].attributes.verkehrsarmer_Strasse + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.verkehrsreicher_Strasse) {
+     document.write('<tr><td>verkehrsreiche Straße</td><td>' + mydata[0].features[GET('id')-1].attributes.verkehrsreicher_Strasse + '</td></tr>');
+   } 
+   if (mydata[0].features[GET('id')-1].attributes.in_Wohnanlage) {
+     document.write('<tr><td>In Wohnanlage</td><td>' + mydata[0].features[GET('id')-1].attributes.in_Wohnanlage + '</td></tr>');
+   } 
+   if (mydata[0].features[GET('id')-1].attributes.Geschäfte_Gewerbe) {
+     document.write('<tr><td>Geschäfte/Gewerbe</td><td>' + mydata[0].features[GET('id')-1].attributes.Geschäfte_Gewerbe + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Wohnviertel) {
+     document.write('<tr><td>Wohnviertel</td><td>' + mydata[0].features[GET('id')-1].attributes.Wohnviertel + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Ball_u_Sportangebot) {
+     document.write('<tr><td>Ball und Sportangebot</td><td>' + mydata[0].features[GET('id')-1].attributes.Ball_u_Sportangebot + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Wohnen_Geschäfte) {
+     document.write('<tr><td>Wohnen/Geschäfte</td><td>' + mydata[0].features[GET('id')-1].attributes.Wohnen_Geschäfte + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Basketball) {
+     document.write('<tr><td>Basketball</td><td>' + mydata[0].features[GET('id')-1].attributes.Basketball + '</td></tr>');
+   } 
+   if (mydata[0].features[GET('id')-1].attributes.Bolzplatz) {
+     document.write('<tr><td>Bolzplatz</td><td>' + mydata[0].features[GET('id')-1].attributes.Bolzplatz + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Bolzwiese) {
+     document.write('<tr><td>Bolzwiese</td><td>' + mydata[0].features[GET('id')-1].attributes.Bolzwiese + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Boulebahn) {
+     document.write('<tr><td>Boulebahn</td><td>' + mydata[0].features[GET('id')-1].attributes.Boulebahn + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Streetball) {
+     document.write('<tr><td>Streetball</td><td>' + mydata[0].features[GET('id')-1].attributes.Streetball + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Skaten) {
+     document.write('<tr><td>Skaten</td><td>' + mydata[0].features[GET('id')-1].attributes.Skaten + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Tischtennis) {
+     document.write('<tr><td>Tischtennis</td><td>' + mydata[0].features[GET('id')-1].attributes.Tischtennis + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Basketballkörbe) {
+     document.write('<tr><td>Basketballkörbe</td><td>' + mydata[0].features[GET('id')-1].attributes.Basketballkörbe + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Fussballtore) {
+     document.write('<tr><td>Fussballtore</td><td>' + mydata[0].features[GET('id')-1].attributes.Fussballtore + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Tischtennis_Tische) {
+     document.write('<tr><td>Tischtennis Tische</td><td>' + mydata[0].features[GET('id')-1].attributes.Tischtennis_Tische + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Torwand) {
+     document.write('<tr><td>Torwand</td><td>' + mydata[0].features[GET('id')-1].attributes.Torwand + '</td></tr>');
+   }
+   if (mydata[0].features[GET('id')-1].attributes.Sonstiges) {
+     document.write('<tr><td>Sonstiges</td><td>' + mydata[0].features[GET('id')-1].attributes.Sonstiges + '</td></tr>');
+   }
    document.write('</table>');
 
   </script>

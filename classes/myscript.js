@@ -7,14 +7,23 @@ window.onload = function load() {
   dochtml = '<table class="table">';
   dochtml = dochtml + '<tr>';
   dochtml = dochtml + '<th>Nr</th>';
-  if (liste["alledaten"]=="JA") {
-    dochtml = dochtml + '<th>Nr</th>';
-  }
   dochtml = dochtml + '<th>Spielplatz</th>';
   dochtml = dochtml + '<th>Stadtbezirk</th>';
   dochtml = dochtml + '<th>Stadtteil</th>';
   dochtml = dochtml + '<th>X-Koor</th>';
   dochtml = dochtml + '<th>Y-Koor</th>';
+  if (liste["alledaten"]=="JA") {
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Y-Koor</th>';
+  }
   dochtml = dochtml + '</tr>';
 
   var nr = 0;
@@ -48,9 +57,6 @@ window.onload = function load() {
       nr = nr + 1;
       dochtml = dochtml + '<tr>';
       dochtml = dochtml + '<td>'+nr+'</td>';
-      if (liste["alledaten"]=="JA") {
-        dochtml = dochtml + '<td>'+liste["alledaten"]+'</td>';
-      }
       dochtml = dochtml + '<td><a href="showdata.html?id='+index+'">'+entry.attributes.Spielplatzname+'</a></td>';
       dochtml = dochtml + '<td>'+entry.attributes.Stadtbezirk+'</td>';
       dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
@@ -67,8 +73,8 @@ window.onload = function load() {
         dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
         dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
         dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '</tr>';
       }
+      dochtml = dochtml + '</tr>';
     }
 });
 

@@ -5,7 +5,7 @@ var stadtbezirk = {"daten": [
         {"text": "Innenstadt",  "stadt": "Köln"},
         {"text": "Porz",        "stadt": "Köln"},
         {"text": "Kalk",        "stadt": "Köln"},
-        {"text": "Mühlheim",    "stadt": "Köln"},
+        {"text": "Mülheim",     "stadt": "Köln"},
         {"text": "Lindenthal",  "stadt": "Köln"},
         {"text": "Rodenkirchen","stadt": "Köln"},
         {"text": "Ehrenfeld",   "stadt": "Köln"},
