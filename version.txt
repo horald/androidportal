@@ -1,0 +1,2 @@
+var versnr ='1.00.011';
+var versdat='05.12.2014';

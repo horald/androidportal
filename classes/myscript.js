@@ -22,7 +22,20 @@ window.onload = function load() {
     dochtml = dochtml + '<th>in_Wohnanlage</th>';
     dochtml = dochtml + '<th>Geschäfte/Gewerbe</th>';
     dochtml = dochtml + '<th>Wohnviertel</th>';
-    dochtml = dochtml + '<th>Ball_u_Sportangebot</th>';
+    dochtml = dochtml + '<th>Ball u. Sportangebot</th>';
+    dochtml = dochtml + '<th>Wohnen/Geschäfte</th>';
+    dochtml = dochtml + '<th>Basketball</th>';
+    dochtml = dochtml + '<th>Bolzplatz</th>';
+    dochtml = dochtml + '<th>Bolzwiese</th>';
+    dochtml = dochtml + '<th>Boulebahn</th>';
+    dochtml = dochtml + '<th>Streetball</th>';
+    dochtml = dochtml + '<th>Skaten</th>';
+    dochtml = dochtml + '<th>Tischtennis</th>';
+    dochtml = dochtml + '<th>Basketballkörbe</th>';
+    dochtml = dochtml + '<th>Fussballtore</th>';
+    dochtml = dochtml + '<th>Tischtennis Tische</th>';
+    dochtml = dochtml + '<th>Torwand</th>';
+    dochtml = dochtml + '<th>Sonstiges</th>';
   }
   dochtml = dochtml + '</tr>';
 
@@ -73,6 +86,19 @@ window.onload = function load() {
         dochtml = dochtml + '<td>'+entry.attributes.Geschäfte_Gewerbe+'</td>';
         dochtml = dochtml + '<td>'+entry.attributes.Wohnviertel+'</td>';
         dochtml = dochtml + '<td>'+entry.attributes.Ball_u_Sportangebot+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Wohnen_Geschäfte+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Basketball+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Bolzplatz+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Bolzwiese+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Boulebahn+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Streetball+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Skaten+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Tischtennis+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Basketballkörbe+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Fussballtore+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Tischtennis_Tische+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Torwand+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Sonstiges+'</td>';
       }
       dochtml = dochtml + '</tr>';
     }
