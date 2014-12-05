@@ -13,16 +13,16 @@ window.onload = function load() {
   dochtml = dochtml + '<th>X-Koor</th>';
   dochtml = dochtml + '<th>Y-Koor</th>';
   if (liste["alledaten"]=="JA") {
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
-    dochtml = dochtml + '<th>Y-Koor</th>';
+    dochtml = dochtml + '<th>Stadtviertel</th>';
+    dochtml = dochtml + '<th>Spielplatzpaten</th>';
+    dochtml = dochtml + '<th>Besonderheiten</th>';
+    dochtml = dochtml + '<th>in Grünanlage/Park</th>';
+    dochtml = dochtml + '<th>verkehrsarmer Strasse</th>';
+    dochtml = dochtml + '<th>verkehrsreicher Strasse</th>';
+    dochtml = dochtml + '<th>in_Wohnanlage</th>';
+    dochtml = dochtml + '<th>Geschäfte/Gewerbe</th>';
+    dochtml = dochtml + '<th>Wohnviertel</th>';
+    dochtml = dochtml + '<th>Ball_u_Sportangebot</th>';
   }
   dochtml = dochtml + '</tr>';
 
@@ -63,16 +63,16 @@ window.onload = function load() {
       dochtml = dochtml + '<td>'+entry.geometry.x+'</td>';
       dochtml = dochtml + '<td>'+entry.geometry.y+'</td>';
       if (liste["alledaten"]=="JA") {
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
-        dochtml = dochtml + '<td>'+entry.attributes.Stadtteil+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Stadtviertel+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Spielplatzpaten+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Besonderheiten+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.in_Grünanlage_Park+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.verkehrsarmer_Strasse+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.verkehrsreicher_Strasse+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.in_Wohnanlage+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Geschäfte_Gewerbe+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Wohnviertel+'</td>';
+        dochtml = dochtml + '<td>'+entry.attributes.Ball_u_Sportangebot+'</td>';
       }
       dochtml = dochtml + '</tr>';
     }

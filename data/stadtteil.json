@@ -2,6 +2,7 @@ var stadtteil = {"daten": [
         {"text": "(ohne)",         "bezirk":"ALL",        "stadt": "ALL"},
         {"text": "Merkenich",      "bezirk":"Chorweiler", "stadt": "Köln"},
         {"text": "Ehrenfeld",      "bezirk":"Ehrenfeld",  "stadt": "Köln"},
+        {"text": "Bickendorf",      "bezirk":"Ehrenfeld",  "stadt": "Köln"},
         {"text": "Nippes",         "bezirk":"Nippes", "stadt": "Köln"},
         {"text": "Mauenheim",      "bezirk":"Nippes", "stadt": "Köln"},
         {"text": "Longerich",      "bezirk":"Nippes", "stadt": "Köln"},
@@ -10,7 +11,10 @@ var stadtteil = {"daten": [
         {"text": "Weidenpesch",    "bezirk":"Nippes", "stadt": "Köln"},
         {"text": "Neustadt-Nord",  "bezirk":"Innenstadt", "stadt": "Köln"},
         {"text": "Neustadt-Süd",   "bezirk":"Innenstadt", "stadt": "Köln"},
+        {"text": "Altstadt-Nord",   "bezirk":"Innenstadt", "stadt": "Köln"},
+        {"text": "Altstadt-Süd",   "bezirk":"Innenstadt", "stadt": "Köln"},
         {"text": "Dellbrück",      "bezirk":"Mülheim", "stadt": "Köln"},
+        {"text": "Bayenthal",    "bezirk":"Rodenkirchen", "stadt": "Köln"},
         {"text": "Klettenberg",    "bezirk":"Lindenthal", "stadt": "Köln"},
         {"text": "Sülz",           "bezirk":"Lindenthal", "stadt": "Köln"}
     ]
