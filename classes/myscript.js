@@ -96,6 +96,8 @@ window.onload = function load() {
 		}
 	  }
 	}
+
+
     if (lweiter) {
 //      nr = nr + 1;
       dochtml = dochtml + '<tr>';
