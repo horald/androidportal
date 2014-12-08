@@ -21,13 +21,6 @@
 
   stadtbezirk.daten.forEach(function(entry) {
     sstadtbezirk=entry.text;
-    if (sstadtbezirk) { 
-      sstadtbezirk = sstadtbezirk.replace("Ã¼","ü"); 
-    }
-    lstadtbezirk=liste['stadtbezirk'];
-    if (lstadtbezirk) { 
-      lstadtbezirk = lstadtbezirk.replace("Ã¼","ü"); 
-    }
     if (entry.stadt=="ALL") {
       lweiter=true;
     } else {
@@ -40,7 +33,7 @@
     if (lweiter) {
       //document.write(sstadtbezirk+"<br>");
 
-      if (lstadtbezirk==sstadtbezirk) {
+      if (liste['stadtbezirk']==sstadtbezirk) {
         document.write('  <option selected>'+sstadtbezirk+'</option>');
       } else {
         document.write('  <option>'+sstadtbezirk+'</option>');

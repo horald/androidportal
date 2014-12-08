@@ -1,24 +1,4 @@
 window.onload = function load() {
-
-   HTTP_GET_VARS=new Array();
-   strGET=document.location.search.substr(1,document.location.search.length);
-   if(strGET!='')
-     {
-     gArr=strGET.split('&');
-     for(i=0;i<gArr.length;++i)
-        {
-        v='';vArr=gArr[i].split('=');
-        if(vArr.length>1){v=vArr[1];}
-        HTTP_GET_VARS[unescape(vArr[0])]=unescape(v);
-        }
-     }
- 
-   function GET(v)
-   {
-     if(!HTTP_GET_VARS[v]){return 'undefined';}
-     return HTTP_GET_VARS[v];
-   }
-
   var mydata = JSON.parse(spielplatzdaten);
   var ni = document.getElementById('mydiv');
   var newdiv = document.createElement('div');
@@ -86,18 +66,8 @@ window.onload = function load() {
         }
       }
     }
-	if (lweiter) {
-      nr = nr + 1;
-	  if (GET('id')!=="undefined") {
-//        alert(">"+GET('id')+"<,>"+nr.toString()+"<");
-	    lweiter=false;
-		if (GET('id')==nr.toString()) {
-		  lweiter=true;
-		}
-	  }
-	}
     if (lweiter) {
-//      nr = nr + 1;
+      nr = nr + 1;
       dochtml = dochtml + '<tr>';
       dochtml = dochtml + '<td>'+nr+'</td>';
       dochtml = dochtml + '<td><a href="showdata.html?id='+index+'">'+entry.attributes.Spielplatzname+'</a></td>';
