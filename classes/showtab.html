@@ -40,76 +40,21 @@
 -->
 
 <form name="auswahl" method="GET" action="showtab.html">
-  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">zurück</a> 
-  <label>Stadtbezirk: </label>
-
+  <a href="../index.html" class="btn btn-primary btn-sm active" role="button">Menü</a> 
   <script type="text/javascript">
-  document.write('<select name="stadtbezirk">');
-
-  stadtbezirk.daten.forEach(function(entry) {
-    sstadtbezirk=entry.text;
-    lstadtbezirk=liste['stadtbezirk'];
-    if (lstadtbezirk) {
-      lstadtbezirk = lstadtbezirk.replace("Ã¼","ü"); 
-    }
-    if (entry.stadt=="ALL") {
-      lweiter=true;
-    } else {
-      if (entry.stadt=="Köln") {
-        lweiter=true;
-      } else {
-        lweiter=false;
-      } 
-    }
-    if (lweiter) {
-      //document.write(sstadtbezirk+"<br>");
-
-      if (lstadtbezirk==sstadtbezirk) {
-        document.write('  <option selected>'+sstadtbezirk+'</option>');
-      } else {
-        document.write('  <option>'+sstadtbezirk+'</option>');
-      }
-
-    }
-  });
-
-  document.write('</select>');
+  var sstadtbezirk = liste["stadtbezirk"];
+  var sstadtteil = liste["stadtteil"];
+  if (!sstadtbezirk) {
+    sstadtbezirk="(ohne)";
+  }
+  if (!sstadtteil) {
+    sstadtteil="(ohne)";
+  }
+  document.write('<a href="openstreetmap.html?stadtbezirk='+sstadtbezirk+'&stadtteil='+sstadtteil+'" class="btn btn-primary btn-sm active" role="button">Map</a> ');
   </script>
 
-  <label>Stadtteil: </label>
-  <script type="text/javascript">
-  document.write('<select name="stadtteil">');
-
-  stadtteil.daten.forEach(function(entry) {
-    sstadtteil=entry.text;
-    lstadtteil = liste['stadtteil'];
-    if (lstadtteil) { 
-      lstadtteil = lstadtteil.replace("Ã¼","ü"); 
-      lstadtteil = lstadtteil.replace("Ã¶","ö"); 
-    }
-    if (entry.stadt=="ALL") {
-      lweiter=true;
-    } else {
-      if (entry.stadt=="Köln") {
-        lweiter=true;
-      } else {
-        lweiter=false;
-      } 
-    }
-    if (lweiter) {
-      //document.write(sstadtbezirk+"<br>");
-
-      if (lstadtteil==sstadtteil) {
-        document.write('  <option selected>'+sstadtteil+'</option>');
-      } else {
-        document.write('  <option>'+sstadtteil+'</option>');
-      }
-
-    }
-  });
-
-  document.write('</select>');
-  </script>
+  <script type="text/javascript" src="select_stadtbezirk.js"></script>
+  <script type="text/javascript" src="select_stadtteil.js"></script>
 
   <input type="checkbox" name="alledaten" value="JA"> alle Daten 
   <input type="submit" value="Go!"> 
